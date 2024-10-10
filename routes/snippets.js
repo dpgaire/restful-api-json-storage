@@ -21,9 +21,9 @@ router.get("/:id", async (req, res) => {
 
 // POST (Create) a new snippet
 router.post("/", async (req, res) => {
-  const { title, description, code } = req.body;
+  const { title, description, codeSnippet } = req.body;
 
-  if (!title || !description || !code) {
+  if (!title || !description || !codeSnippet) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
@@ -32,7 +32,7 @@ router.post("/", async (req, res) => {
     id: Date.now().toString(), // Simple unique ID
     title,
     description,
-    code,
+    codeSnippet,
   };
   snippets.push(newSnippet);
 
@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
 
 // PUT (Update) an existing snippet by ID
 router.put("/:id", async (req, res) => {
-  const { title, description, code } = req.body;
+  const { title, description, codeSnippet } = req.body;
 
   const snippets = await readData();
   const snippetIndex = snippets.findIndex((s) => s.id === req.params.id);
@@ -55,7 +55,7 @@ router.put("/:id", async (req, res) => {
     ...snippets[snippetIndex],
     title: title || snippets[snippetIndex].title,
     description: description || snippets[snippetIndex].description,
-    code: code || snippets[snippetIndex].code,
+    codeSnippet: codeSnippet || snippets[snippetIndex].codeSnippet,
   };
 
   snippets[snippetIndex] = updatedSnippet;

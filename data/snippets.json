@@ -1,8 +1,8 @@
 [
   {
-    "id": "1728555819034",
+    "id": "1728556446220",
     "title": "Sample Snippet",
     "description": "A sample code snippet",
-    "code": "console.log(Hello World)"
+    "codeSnippet": "console.log(Hello World)"
   }
 ]
