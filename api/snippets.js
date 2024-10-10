@@ -3,6 +3,9 @@ const express = require("express");
 const { readData, writeData } = require("../utils/fileUtils");
 const router = express.Router();
 
+// Apply the express.json() middleware
+app.use(express.json());
+
 // GET all snippets
 router.get("/", async (req, res) => {
   const snippets = await readData();
