@@ -1,0 +1,11 @@
+{
+    "version": 2,
+    "builds": [{
+        "src": "api/snippets.js",
+        "use": "@vercel/node"
+    }],
+    "routes": [{
+        "src": "/api/snippets",
+        "dest": "/api/snippets.js"
+    }]
+}
